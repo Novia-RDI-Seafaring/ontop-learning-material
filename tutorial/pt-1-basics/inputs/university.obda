@@ -1,0 +1,127 @@
+[PrefixDeclaration]
+:		http://example.org/voc#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+foaf:		http://xmlns.com/foaf/0.1/
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	uni1-student
+target		:uni1/student/{s_id} a :Student ; foaf:firstName {first_name}^^xsd:string ; foaf:lastName {last_name}^^xsd:string . 
+source		SELECT * FROM "uni1"."student"
+
+mappingId	MAPID-fe6b8cfa25d74f4e81c83a7ed5cce468
+target		:uni1/academic/{a_id} a :FacultyMember ; foaf:firstName {first_name}^^xsd:string ; foaf:lastName {last_name}^^xsd:string . 
+source		SELECT *
+			FROM "uni1"."academic"
+
+mappingId	MAPID-750d85b25ca9484f9ded47f841eac932
+target		:uni1/course/{c_id} a :Course ; :title {title} ; :isGivenAt :uni1/university . 
+source		SELECT *
+			FROM "uni1"."course"
+
+mappingId	MAPID-c90c47cd6dd04e36891fcd99cc096e2f
+target		:uni1/academic/{a_id} :teaches :uni1/course/{c_id} . 
+source		SELECT *
+			FROM "uni1"."teaching"
+
+mappingId	MAPID-1234b2cb35f448d6b6f58edbf1d7e4dd
+target		:uni1/student/{s_id} :attends :uni1/course/{c_id} . 
+source		SELECT *
+			FROM "uni1"."course-registration"
+
+mappingId	MAPID-c560a06040404b4ab9d9af3e0bcec116
+target		:uni1/academic/{a_id} a :FullProfessor . 
+source		SELECT *
+			FROM "uni1"."academic"
+			WHERE "position" = 1
+
+mappingId	MAPID-5c49079753ba4a28bf2a37aa73100648
+target		:uni1/academic/{a_id} a :AssociateProfessor . 
+source		SELECT *
+			FROM "uni1"."academic"
+			WHERE "position" = 2
+
+mappingId	MAPID-5c49079753ba4a28bf2a37aa73100648(0)
+target		:uni1/academic/{a_id} a :AssistantProfessor . 
+source		SELECT *
+			FROM "uni1"."academic"
+			WHERE "position" = 3
+
+mappingId	MAPID-5c49079753ba4a28bf2a37aa73100648(0)(0)
+target		:uni1/academic/{a_id} a :ExternalTeacher . 
+source		SELECT *
+			FROM "uni1"."academic"
+			WHERE "position" = 8
+
+mappingId	MAPID-5c49079753ba4a28bf2a37aa73100648(0)(0)(0)
+target		:uni1/academic/{a_id} a :PostDoc . 
+source		SELECT *
+			FROM "uni1"."academic"
+			WHERE "position" = 9
+
+mappingId	MAPID-7db7b05d4ae74b7aaec2b532a16ee401
+target		:uni2/person/{pid} a foaf:Person ; foaf:firstName {fname}^^xsd:string ; foaf:lastName {lname}^^xsd:string . 
+source		SELECT *
+			FROM "uni2"."person"
+
+mappingId	MAPID-fe6a1583971444b8a9d0c14e0413c8d5
+target		:uni2/course/{cid} a :Course ; :title {topic}^^xsd:string ; :isGivenAt :uni2/university . 
+source		SELECT *
+			FROM "uni2"."course"
+
+mappingId	MAPID-f7c863e3fbe144659ecf65bc1ae40c13
+target		:uni2/person/{lecturer} :givesLecture :uni2/course/{cid} . 
+source		SELECT *
+			FROM "uni2"."course"
+
+mappingId	MAPID-5744d088937448bc865610443470a24d
+target		:uni2/person/{lab_teacher} :givesLab :uni2/course/{cid} . 
+source		SELECT *
+			FROM "uni2"."course"
+
+mappingId	MAPID-670054ab858e45e2b6db25acb6d448bb
+target		:uni2/person/{pid} :attends :uni2/course/{cid} . 
+source		SELECT *
+			FROM "uni2"."registration"
+
+mappingId	MAPID-8e12a0a1661a463ab3decad186e7850f
+target		:uni2/person/{pid} a :UndergraduateStudent . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 1
+
+mappingId	MAPID-4b47cf41ebc048f186b28dd11d5dc4e4
+target		:uni2/person/{pid} a :GraduateStudent . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 2
+
+mappingId	MAPID-088baa0dd0a34c659170492a1f7f5625
+target		:uni2/person/{pid} a :PostDoc . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 3
+
+mappingId	MAPID-34c6c2b44bb642eb8d4d7326d6fbab70
+target		:uni2/person/{pid} a :FullProfessor . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 7
+
+mappingId	MAPID-554eaa595af84c2a89d7e4fca6883009
+target		:uni2/person/{pid} a :AssociateProfessor . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 8
+
+mappingId	MAPID-221b54e1de5943c3bd02ef6c3b14a72b
+target		:uni2/person/{pid} a :AssistantProfessor . 
+source		SELECT *
+			FROM "uni2"."person"
+			WHERE "status" = 9
+]]
+
