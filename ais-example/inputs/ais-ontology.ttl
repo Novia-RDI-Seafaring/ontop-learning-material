@@ -1,0 +1,92 @@
+@prefix ais: <http://example.org/ais#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+
+# Define the Vessel class
+ais:Vessel a rdfs:Class .
+
+# Define the PositionUpdate class
+ais:PositionUpdate a rdfs:Class .
+
+# Define key properties for Vessel
+ais:mmsi a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:integer .
+
+ais:name a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:string .
+
+ais:shipType a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:string .
+
+ais:destination a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:string .
+
+ais:draught a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:decimal .
+
+ais:imo a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:integer .
+
+ais:callSign a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:string .
+
+ais:eta a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:dateTime .
+
+ais:posType a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range xsd:string .
+
+# Define key properties for PositionUpdate
+ais:time a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:dateTime .
+
+ais:sog a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:decimal .
+
+ais:cog a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:decimal .
+
+ais:navSat a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:integer .
+
+ais:rot a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:decimal .
+
+ais:posAcc a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:boolean .
+
+ais:raim a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:boolean .
+
+ais:heading a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:integer .
+
+ais:lon a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:decimal .
+
+ais:lat a rdf:Property ;
+    rdfs:domain ais:PositionUpdate ;
+    rdfs:range xsd:decimal .
+
+# Define the relationship linking a vessel to its position updates
+ais:hasPositionUpdate a rdf:Property ;
+    rdfs:domain ais:Vessel ;
+    rdfs:range ais:PositionUpdate .
