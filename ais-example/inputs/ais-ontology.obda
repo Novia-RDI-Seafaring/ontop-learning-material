@@ -1,0 +1,16 @@
+[PrefixDeclaration]
+ais:		http://example.org/ais#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	ais_metadata
+target		<http://example.org/ais/metadata/{mmsi}/{time}> a ais:Vessel ; ais:mmsi {mmsi}^^xsd:string ; ais:imo {imo}^^xsd:string ; ais:name {name}^^xsd:string ; ais:shipType {shipType}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:string ; ais:callSign {callSign}^^xsd:string ; ais:eta {eta}^^xsd:dateTime ; ais:posType {pos_Type}^^xsd:string . 
+source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_Type 
+			FROM metadata;
+]]
+

@@ -1,92 +1,153 @@
 @prefix ais: <http://example.org/ais#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
 
-# Define the Vessel class
-ais:Vessel a rdfs:Class .
+[ rdf:type owl:Ontology
+ ] .
 
-# Define the PositionUpdate class
-ais:PositionUpdate a rdfs:Class .
+#################################################################
+#    Object Properties
+#################################################################
 
-# Define key properties for Vessel
-ais:mmsi a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:integer .
+###  http://example.org/ais#hasPositionUpdate
+ais:hasPositionUpdate rdf:type owl:ObjectProperty ;
+                      rdfs:domain ais:Vessel ;
+                      rdfs:range ais:PositionUpdate .
 
-ais:name a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:string .
 
-ais:shipType a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:string .
+#################################################################
+#    Data properties
+#################################################################
 
-ais:destination a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:string .
+###  http://example.org/ais#callSign
+ais:callSign rdf:type owl:DatatypeProperty ;
+             rdfs:domain ais:Vessel ;
+             rdfs:range xsd:string .
 
-ais:draught a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:decimal .
 
-ais:imo a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:integer .
+###  http://example.org/ais#cog
+ais:cog rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:PositionUpdate ;
+        rdfs:range xsd:decimal .
 
-ais:callSign a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:string .
 
-ais:eta a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:dateTime .
+###  http://example.org/ais#destination
+ais:destination rdf:type owl:DatatypeProperty ;
+                rdfs:domain ais:Vessel ;
+                rdfs:range xsd:string .
 
-ais:posType a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range xsd:string .
 
-# Define key properties for PositionUpdate
-ais:time a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:dateTime .
+###  http://example.org/ais#draught
+ais:draught rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:Vessel ;
+            rdfs:range xsd:decimal .
 
-ais:sog a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:decimal .
 
-ais:cog a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:decimal .
+###  http://example.org/ais#eta
+ais:eta rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:Vessel ;
+        rdfs:range xsd:dateTime .
 
-ais:navSat a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:integer .
 
-ais:rot a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:decimal .
+###  http://example.org/ais#heading
+ais:heading rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:PositionUpdate ;
+            rdfs:range xsd:integer .
 
-ais:posAcc a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:boolean .
 
-ais:raim a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:boolean .
+###  http://example.org/ais#imo
+ais:imo rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:Vessel ;
+        rdfs:range xsd:integer .
 
-ais:heading a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:integer .
 
-ais:lon a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:decimal .
+###  http://example.org/ais#lat
+ais:lat rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:PositionUpdate ;
+        rdfs:range xsd:decimal .
 
-ais:lat a rdf:Property ;
-    rdfs:domain ais:PositionUpdate ;
-    rdfs:range xsd:decimal .
 
-# Define the relationship linking a vessel to its position updates
-ais:hasPositionUpdate a rdf:Property ;
-    rdfs:domain ais:Vessel ;
-    rdfs:range ais:PositionUpdate .
+###  http://example.org/ais#lon
+ais:lon rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:PositionUpdate ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#mmsi
+ais:mmsi rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:Vessel ;
+         rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#name
+ais:name rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:Vessel ;
+         rdfs:range xsd:string .
+
+
+###  http://example.org/ais#navSat
+ais:navSat rdf:type owl:DatatypeProperty ;
+           rdfs:domain ais:PositionUpdate ;
+           rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#posAcc
+ais:posAcc rdf:type owl:DatatypeProperty ;
+           rdfs:domain ais:PositionUpdate ;
+           rdfs:range xsd:boolean .
+
+
+###  http://example.org/ais#posType
+ais:posType rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:Vessel ;
+            rdfs:range xsd:string .
+
+
+###  http://example.org/ais#raim
+ais:raim rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:PositionUpdate ;
+         rdfs:range xsd:boolean .
+
+
+###  http://example.org/ais#rot
+ais:rot rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:PositionUpdate ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#shipType
+ais:shipType rdf:type owl:DatatypeProperty ;
+             rdfs:domain ais:Vessel ;
+             rdfs:range xsd:string .
+
+
+###  http://example.org/ais#sog
+ais:sog rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:PositionUpdate ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#time
+ais:time rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:PositionUpdate ;
+         rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/ais#PositionUpdate
+ais:PositionUpdate rdf:type owl:Class .
+
+
+###  http://example.org/ais#Vessel
+ais:Vessel rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

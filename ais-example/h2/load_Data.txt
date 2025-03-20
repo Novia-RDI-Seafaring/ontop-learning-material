@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS metadata;
+CREATE TABLE metadata AS SELECT * FROM CSVREAD('metadata.csv');
+
+DROP TABLE IF EXISTS location;
+CREATE TABLE metadata AS SELECT * FROM CSVREAD('location.csv');
