@@ -1,3 +1,4 @@
+@prefix : <http://example.org/voc#> .
 @prefix ais: <http://example.org/ais#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -5,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.w3.org/2002/07/owl#> .
+@base <http://example.org/voc#> .
 
 [ rdf:type owl:Ontology
  ] .
@@ -51,7 +52,7 @@ ais:draught rdf:type owl:DatatypeProperty ;
 ###  http://example.org/ais#eta
 ais:eta rdf:type owl:DatatypeProperty ;
         rdfs:domain ais:Vessel ;
-        rdfs:range xsd:dateTime .
+        rdfs:range xsd:integer .
 
 
 ###  http://example.org/ais#heading
@@ -69,13 +70,13 @@ ais:imo rdf:type owl:DatatypeProperty ;
 ###  http://example.org/ais#lat
 ais:lat rdf:type owl:DatatypeProperty ;
         rdfs:domain ais:PositionUpdate ;
-        rdfs:range xsd:decimal .
+        rdfs:range xsd:double .
 
 
 ###  http://example.org/ais#lon
 ais:lon rdf:type owl:DatatypeProperty ;
         rdfs:domain ais:PositionUpdate ;
-        rdfs:range xsd:decimal .
+        rdfs:range xsd:double .
 
 
 ###  http://example.org/ais#mmsi
@@ -90,10 +91,10 @@ ais:name rdf:type owl:DatatypeProperty ;
          rdfs:range xsd:string .
 
 
-###  http://example.org/ais#navSat
-ais:navSat rdf:type owl:DatatypeProperty ;
-           rdfs:domain ais:PositionUpdate ;
-           rdfs:range xsd:integer .
+###  http://example.org/ais#navStat
+ais:navStat rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:PositionUpdate ;
+            rdfs:range xsd:integer .
 
 
 ###  http://example.org/ais#posAcc
@@ -105,7 +106,7 @@ ais:posAcc rdf:type owl:DatatypeProperty ;
 ###  http://example.org/ais#posType
 ais:posType rdf:type owl:DatatypeProperty ;
             rdfs:domain ais:Vessel ;
-            rdfs:range xsd:string .
+            rdfs:range xsd:integer .
 
 
 ###  http://example.org/ais#raim
