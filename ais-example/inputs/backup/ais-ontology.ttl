@@ -1,0 +1,182 @@
+@prefix : <http://example.org/voc#> .
+@prefix ais: <http://example.org/ais#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/voc#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/ais#hasLocationData
+ais:hasLocationData rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Vessel ;
+                    rdfs:range ais:LocationData .
+
+
+###  http://example.org/ais#hasMetadata
+ais:hasMetadata rdf:type owl:ObjectProperty ;
+                rdfs:domain :Vessel ;
+                rdfs:range ais:Metadata .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.org/ais#callSign
+ais:callSign rdf:type owl:DatatypeProperty ;
+             rdfs:domain ais:Metadata ;
+             rdfs:range xsd:string .
+
+
+###  http://example.org/ais#cog
+ais:cog rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:LocationData ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#destination
+ais:destination rdf:type owl:DatatypeProperty ;
+                rdfs:domain ais:Metadata ;
+                rdfs:range xsd:string .
+
+
+###  http://example.org/ais#draught
+ais:draught rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:Metadata ;
+            rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#eta
+ais:eta rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:Metadata ;
+        rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#heading
+ais:heading rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:LocationData ;
+            rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#imo
+ais:imo rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:Metadata ;
+        rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#lat
+ais:lat rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:LocationData ;
+        rdfs:range xsd:double .
+
+
+###  http://example.org/ais#lon
+ais:lon rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:LocationData ;
+        rdfs:range xsd:double .
+
+
+###  http://example.org/ais#mmsi
+ais:mmsi rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Vessel ;
+         rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#mmsiLocation
+ais:mmsiLocation rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ais:LocationData ;
+                 rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#mmsiMetadata
+ais:mmsiMetadata rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ais:Metadata ;
+                 rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#name
+ais:name rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:Metadata ;
+         rdfs:range xsd:string .
+
+
+###  http://example.org/ais#navStat
+ais:navStat rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:LocationData ;
+            rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#posAcc
+ais:posAcc rdf:type owl:DatatypeProperty ;
+           rdfs:domain ais:LocationData ;
+           rdfs:range xsd:boolean .
+
+
+###  http://example.org/ais#posType
+ais:posType rdf:type owl:DatatypeProperty ;
+            rdfs:domain ais:Metadata ;
+            rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#raim
+ais:raim rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:LocationData ;
+         rdfs:range xsd:boolean .
+
+
+###  http://example.org/ais#rot
+ais:rot rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:LocationData ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#shipType
+ais:shipType rdf:type owl:DatatypeProperty ;
+             rdfs:domain ais:Metadata ;
+             rdfs:range xsd:string .
+
+
+###  http://example.org/ais#sog
+ais:sog rdf:type owl:DatatypeProperty ;
+        rdfs:domain ais:LocationData ;
+        rdfs:range xsd:decimal .
+
+
+###  http://example.org/ais#timeLocation
+ais:timeLocation rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ais:LocationData ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://example.org/ais#timeMetadata
+ais:timeMetadata rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ais:Metadata ;
+                 rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/ais#LocationData
+ais:LocationData rdf:type owl:Class .
+
+
+###  http://example.org/ais#Metadata
+ais:Metadata rdf:type owl:Class .
+
+
+###  http://example.org/voc#Vessel
+:Vessel rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

@@ -9,14 +9,28 @@ obda:		https://w3id.org/obda/vocabulary#
 rdfs:		http://www.w3.org/2000/01/rdf-schema#
 
 [MappingDeclaration] @collection [[
-mappingId	MappingAISLocation
-target		:ais-session/location/{mmsi}/{time} a ais:PositionUpdate ; ais:mmsi {mmsi}^^xsd:integer ; ais:time {time}^^xsd:dateTime ; ais:sog {sog}^^xsd:decimal ; ais:cog {cog}^^xsd:decimal ; ais:navStat {nav_stat}^^xsd:integer ; ais:rot {rot}^^xsd:decimal ; ais:posAcc {pos_acc}^^xsd:boolean ; ais:raim {raim}^^xsd:boolean ; ais:heading {heading}^^xsd:integer ; ais:lon {lon}^^xsd:double ; ais:lat {lat}^^xsd:double . 
-source		SELECT mmsi, time, sog, cog, nav_stat, rot, pos_acc, raim, heading, lon, lat
-			FROM location;
+mappingId	MappingVesselIdentifier
+target		:ais-session/vessel/{mmsi} a :Vessel ; ais:mmsi {mmsi}^^xsd:integer . 
+source		SELECT mmsi FROM metadata;
 
-mappingId	MappingAISMetadata
-target		:ais-session/metadata/{mmsi}/{time} a ais:Vessel ; ais:mmsi {mmsi}^^xsd:integer ; ais:time {time}^^xsd:dateTime ; ais:imo {imo}^^xsd:integer ; ais:name {name}^^xsd:string ; ais:shipType {ship_type}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer . 
-source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_type
-			FROM metadata;
+mappingId	MappingVesselName
+target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:name {name}^^xsd:string . 
+source		SELECT mmsi, time, name FROM metadata;
+
+mappingId	MappingVesselhasMetadata
+target		:ais-session/vessel/{mmsi} ais:hasMetadata :ais-session/metadata/{mmsi}/{time} . 
+source		SELECT mmsi, time FROM metadata;
+
+mappingId	MappingVesselhasLocation
+target		:ais-session/vessel/{mmsi} ais:hasLocation :ais-session/location/{mmsi}/{time} . 
+source		SELECT mmsi, time FROM location;
+
+mappingId	MappingVesselSOG
+target		:ais-session/location/{mmsi}/{time} a ais:Location ; ais:sog {sog}^^xsd:decimal . 
+source		SELECT mmsi, time, sog FROM location;
+
+mappingId	MappingVesselCOG
+target		:ais-session/location/{mmsi}/{time} a ais:Location ; ais:cog {cog}^^xsd:decimal . 
+source		SELECT mmsi, time, cog FROM location;
 ]]
 
