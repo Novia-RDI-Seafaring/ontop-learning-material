@@ -51,7 +51,7 @@ WHERE {
 PREFIX : <http://example.org/voc#>
 PREFIX ais: <http://example.org/ais#>
 
-SELECT DISTINCT ?mmsi ?name ?lat ?lon
+SELECT DISTINCT ?time ?mmsi ?name ?lat ?lon 
 WHERE {
   ?vessel a :Vessel ;
           ais:mmsi ?mmsi ;
@@ -63,7 +63,8 @@ WHERE {
 
   ?location a ais:Location ;
             ais:lat ?lat ;
-	   ais:lon ?lon .
+	   ais:lon ?lon ;
+	   ais:time ?time .
 }
 [QueryItem="mmsi_name_destination"]
 PREFIX : <http://example.org/voc#>
