@@ -151,16 +151,11 @@ ais:sog rdf:type owl:DatatypeProperty ;
         rdfs:range xsd:decimal .
 
 
-###  http://example.org/ais#timeLocation
-ais:timeLocation rdf:type owl:DatatypeProperty ;
-                 rdfs:domain ais:Location ;
-                 rdfs:range xsd:dateTime .
-
-
-###  http://example.org/ais#timeMetadata
-ais:timeMetadata rdf:type owl:DatatypeProperty ;
-                 rdfs:domain ais:Metadata ;
-                 rdfs:range xsd:dateTime .
+###  http://example.org/ais#time
+ais:time rdf:type owl:DatatypeProperty ;
+         rdfs:domain ais:Location ,
+                     ais:Metadata ;
+         rdfs:range xsd:dateTime .
 
 
 #################################################################
