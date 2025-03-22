@@ -87,20 +87,10 @@ ais:lon rdf:type owl:DatatypeProperty ;
 
 ###  http://example.org/ais#mmsi
 ais:mmsi rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Vessel ;
+         rdfs:domain ais:Location ,
+                     ais:Metadata ,
+                     :Vessel ;
          rdfs:range xsd:integer .
-
-
-###  http://example.org/ais#mmsiLocation
-ais:mmsiLocation rdf:type owl:DatatypeProperty ;
-                 rdfs:domain ais:Location ;
-                 rdfs:range xsd:integer .
-
-
-###  http://example.org/ais#mmsiMetadata
-ais:mmsiMetadata rdf:type owl:DatatypeProperty ;
-                 rdfs:domain ais:Metadata ;
-                 rdfs:range xsd:integer .
 
 
 ###  http://example.org/ais#name
