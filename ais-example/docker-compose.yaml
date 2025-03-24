@@ -21,6 +21,5 @@ services:
       ONTOP_DEV_MODE: "true"
     volumes:
       - ./inputs:/opt/ontop/input
-      - ./jdbc:/opt/ontop/jdbc
     ports:
       - "8080:8080"
