@@ -27,6 +27,12 @@ ais:hasMetadata rdf:type owl:ObjectProperty ;
                 rdfs:range ais:Metadata .
 
 
+###  http://example.org/ais#hasShipType
+ais:hasShipType rdf:type owl:ObjectProperty ;
+                rdfs:domain ais:Metadata ;
+                rdfs:range ais:ShipType .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -129,10 +135,10 @@ ais:rot rdf:type owl:DatatypeProperty ;
         rdfs:range xsd:decimal .
 
 
-###  http://example.org/ais#shipType
-ais:shipType rdf:type owl:DatatypeProperty ;
-             rdfs:domain ais:Metadata ;
-             rdfs:range xsd:string .
+###  http://example.org/ais#shipTypeDescription
+ais:shipTypeDescription rdf:type owl:DatatypeProperty ;
+                        rdfs:domain ais:ShipType ;
+                        rdfs:range xsd:string .
 
 
 ###  http://example.org/ais#sog
@@ -158,6 +164,10 @@ ais:Location rdf:type owl:Class .
 
 ###  http://example.org/ais#Metadata
 ais:Metadata rdf:type owl:Class .
+
+
+###  http://example.org/ais#ShipType
+ais:ShipType rdf:type owl:Class .
 
 
 ###  http://example.org/voc#Vessel

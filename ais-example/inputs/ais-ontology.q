@@ -80,3 +80,18 @@ WHERE {
             ais:name ?name ;
 	   ais:destination ?destination ;
 }
+[QueryItem="distinct_mmsi_name_shipType_shipTypeDescription"]
+PREFIX : <http://example.org/voc#>
+PREFIX ais: <http://example.org/ais#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?mmsi ?name ?shipType ?shipTypeDescription
+WHERE {
+  ?metadata a ais:Metadata ;
+            ais:mmsi ?mmsi ;
+            ais:name ?name ;
+            ais:hasShipType ?shipType .
+  
+  ?shipType a ais:ShipType ;
+            ais:shipTypeDescription ?shipTypeDescription .
+}

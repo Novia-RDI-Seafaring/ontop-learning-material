@@ -13,10 +13,6 @@ mappingId	MappingVesselIdentifier
 target		:ais-session/vessel/{mmsi} a :Vessel ; ais:mmsi {mmsi}^^xsd:integer . 
 source		SELECT mmsi FROM metadata;
 
-mappingId	MappingVesselName
-target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:name {name}^^xsd:string . 
-source		SELECT mmsi, time, name FROM metadata;
-
 mappingId	MappingVesselhasMetadata
 target		:ais-session/vessel/{mmsi} ais:hasMetadata :ais-session/metadata/{mmsi}/{time} . 
 source		SELECT mmsi, time FROM metadata;
@@ -31,8 +27,12 @@ source		SELECT mmsi, time, sog, cog, nav_stat, rot, pos_acc, raim, heading, lon,
 			FROM location;
 
 mappingId	MappingVesselMetadata
-target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:imo {imo}^^xsd:integer ; ais:name {name}^^xsd:string ; ais:shipType {ship_type}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer . 
+target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:imo {imo}^^xsd:integer ; ais:name {name}^^xsd:string ; ais:hasShipType ais:shipType/{ship_type} ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer . 
 source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_type
 			FROM metadata;
+
+mappingId	MappingShipType
+target		ais:shipType/{id} a ais:ShipType ; ais:shipTypeDescription {description}^^xsd:string . 
+source		SELECT id, description FROM ship_type;
 ]]
 
