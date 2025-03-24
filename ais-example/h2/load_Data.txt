@@ -14,3 +14,12 @@ WHERE {
   ?vessel ais:name ?name .
 }
 ORDER BY ?mmsi
+
+DROP TABLE IF EXISTS nav_stat_description;
+CREATE TABLE nav_stat_description AS SELECT * FROM CSVREAD('../ais-session2-raw-data/nav_stat.csv');
+
+ALTER TABLE nav_stat_description
+MODIFY nav_stat INT NOT NULL; 
+
+ALTER TABLE nav_stat_description
+ADD PRIMARY KEY (nav_stat);

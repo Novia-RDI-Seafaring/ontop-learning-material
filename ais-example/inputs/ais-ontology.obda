@@ -27,12 +27,16 @@ source		SELECT mmsi, time, sog, cog, nav_stat, rot, pos_acc, raim, heading, lon,
 			FROM location;
 
 mappingId	MappingVesselMetadata
-target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:hasShipType ais:shipType/{ship_type} ; ais:name {name}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:imo {imo}^^xsd:integer ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer ; ais:referencePointA {pos_type}^^xsd:integer ; ais:referencePointB {pos_type}^^xsd:integer ; ais:referencePointC {pos_type}^^xsd:integer ; ais:referencePointD {pos_type}^^xsd:integer . 
+target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:hasShipType ais:ship_type/{ship_type} ; ais:name {name}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:imo {imo}^^xsd:integer ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:hasPosType ais:pos_type/{pos_type} ; ais:referencePointA {reference_point_a}^^xsd:integer ; ais:referencePointB {reference_point_b}^^xsd:integer ; ais:referencePointC {reference_point_c}^^xsd:integer ; ais:referencePointD {reference_point_d}^^xsd:integer . 
 source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_type, reference_point_a, reference_point_b, reference_point_c, reference_point_d
 			FROM metadata;
 
 mappingId	MappingShipType
-target		ais:shipType/{id} a ais:ShipType ; ais:shipTypeDescription {description}^^xsd:string . 
-source		SELECT id, description FROM ship_type;
+target		ais:ship_type/{id} a ais:ShipTypeDescription ; ais:shipTypeDescription {description}^^xsd:string . 
+source		SELECT id, description FROM ship_type_description;
+
+mappingId	MappingPosType
+target		ais:pos_type/{id} a ais:PosTypeDescription ; ais:posTypeDescription {description}^^xsd:string . 
+source		SELECT id, description FROM pos_type_description ;
 ]]
 

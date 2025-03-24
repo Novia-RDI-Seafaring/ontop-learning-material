@@ -27,10 +27,16 @@ ais:hasMetadata rdf:type owl:ObjectProperty ;
                 rdfs:range ais:Metadata .
 
 
+###  http://example.org/ais#hasPosType
+ais:hasPosType rdf:type owl:ObjectProperty ;
+               rdfs:domain ais:Metadata ;
+               rdfs:range ais:PosTypeDescription .
+
+
 ###  http://example.org/ais#hasShipType
 ais:hasShipType rdf:type owl:ObjectProperty ;
                 rdfs:domain ais:Metadata ;
-                rdfs:range ais:ShipType .
+                rdfs:range ais:ShipTypeDescription .
 
 
 #################################################################
@@ -123,6 +129,12 @@ ais:posType rdf:type owl:DatatypeProperty ;
             rdfs:range xsd:integer .
 
 
+###  http://example.org/ais#posTypeDescription
+ais:posTypeDescription rdf:type owl:DatatypeProperty ;
+                       rdfs:domain ais:PosTypeDescription ;
+                       rdfs:range xsd:string .
+
+
 ###  http://example.org/ais#raim
 ais:raim rdf:type owl:DatatypeProperty ;
          rdfs:domain ais:Location ;
@@ -161,7 +173,7 @@ ais:rot rdf:type owl:DatatypeProperty ;
 
 ###  http://example.org/ais#shipTypeDescription
 ais:shipTypeDescription rdf:type owl:DatatypeProperty ;
-                        rdfs:domain ais:ShipType ;
+                        rdfs:domain ais:ShipTypeDescription ;
                         rdfs:range xsd:string .
 
 
@@ -190,8 +202,24 @@ ais:Location rdf:type owl:Class .
 ais:Metadata rdf:type owl:Class .
 
 
-###  http://example.org/ais#ShipType
-ais:ShipType rdf:type owl:Class .
+###  http://example.org/ais#NavStatDescription
+ais:NavStatDescription rdf:type owl:Class .
+
+
+###  http://example.org/ais#PosAccDescription
+ais:PosAccDescription rdf:type owl:Class .
+
+
+###  http://example.org/ais#PosTypeDescription
+ais:PosTypeDescription rdf:type owl:Class .
+
+
+###  http://example.org/ais#RAIMDescription
+ais:RAIMDescription rdf:type owl:Class .
+
+
+###  http://example.org/ais#ShipTypeDescription
+ais:ShipTypeDescription rdf:type owl:Class .
 
 
 ###  http://example.org/voc#Vessel

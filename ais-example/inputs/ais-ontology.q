@@ -92,6 +92,6 @@ WHERE {
             ais:name ?name ;
             ais:hasShipType ?shipType .
   
-  ?shipType a ais:ShipType ;
+  ?shipType a ais:ShipTypeDescription ;
             ais:shipTypeDescription ?shipTypeDescription .
 }
