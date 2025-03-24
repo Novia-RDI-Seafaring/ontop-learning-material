@@ -129,6 +129,30 @@ ais:raim rdf:type owl:DatatypeProperty ;
          rdfs:range xsd:boolean .
 
 
+###  http://example.org/ais#referencePointA
+ais:referencePointA rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ais:Metadata ;
+                    rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#referencePointB
+ais:referencePointB rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ais:Metadata ;
+                    rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#referencePointC
+ais:referencePointC rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ais:Metadata ;
+                    rdfs:range xsd:integer .
+
+
+###  http://example.org/ais#referencePointD
+ais:referencePointD rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ais:Metadata ;
+                    rdfs:range xsd:integer .
+
+
 ###  http://example.org/ais#rot
 ais:rot rdf:type owl:DatatypeProperty ;
         rdfs:domain ais:Location ;

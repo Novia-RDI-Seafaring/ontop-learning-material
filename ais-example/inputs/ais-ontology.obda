@@ -27,8 +27,8 @@ source		SELECT mmsi, time, sog, cog, nav_stat, rot, pos_acc, raim, heading, lon,
 			FROM location;
 
 mappingId	MappingVesselMetadata
-target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:imo {imo}^^xsd:integer ; ais:name {name}^^xsd:string ; ais:hasShipType ais:shipType/{ship_type} ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer . 
-source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_type
+target		:ais-session/metadata/{mmsi}/{time} a ais:Metadata ; ais:time {time}^^xsd:dateTime ; ais:mmsi {mmsi}^^xsd:integer ; ais:hasShipType ais:shipType/{ship_type} ; ais:name {name}^^xsd:string ; ais:destination {destination}^^xsd:string ; ais:draught {draught}^^xsd:decimal ; ais:imo {imo}^^xsd:integer ; ais:callSign {call_sign}^^xsd:string ; ais:eta {eta}^^xsd:integer ; ais:posType {pos_type}^^xsd:integer ; ais:referencePointA {pos_type}^^xsd:integer ; ais:referencePointB {pos_type}^^xsd:integer ; ais:referencePointC {pos_type}^^xsd:integer ; ais:referencePointD {pos_type}^^xsd:integer . 
+source		SELECT mmsi, time, imo, name, ship_type, destination, draught, call_sign, eta, pos_type, reference_point_a, reference_point_b, reference_point_c, reference_point_d
 			FROM metadata;
 
 mappingId	MappingShipType
