@@ -15,6 +15,9 @@ WHERE {
 }
 ORDER BY ?mmsi
 
+
+
+
 DROP TABLE IF EXISTS nav_stat_description;
 CREATE TABLE nav_stat_description AS SELECT * FROM CSVREAD('../ais-session2-raw-data/nav_stat.csv');
 

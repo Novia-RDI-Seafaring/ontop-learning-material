@@ -1,0 +1,139 @@
+@prefix : <http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/> .
+
+<http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://schema.org/homeLocation
+<http://schema.org/homeLocation> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <http://schema.org/Person> ;
+                                 rdfs:range <http://schema.org/City> .
+
+
+###  http://schema.org/location
+<http://schema.org/location> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <http://schema.org/Organization> ;
+                             rdfs:range <http://schema.org/City> .
+
+
+###  http://schema.org/worksFor
+<http://schema.org/worksFor> rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :employs ;
+                             rdfs:domain <http://schema.org/Person> ;
+                             rdfs:range <http://schema.org/Organization> .
+
+
+###  http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/employs
+:employs rdf:type owl:ObjectProperty ;
+         rdfs:domain <http://schema.org/Organization> ;
+         rdfs:range <http://schema.org/Person> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/email
+<http://schema.org/email> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain <http://schema.org/Person> ;
+                          rdfs:range xsd:string .
+
+
+###  http://schema.org/familyName
+<http://schema.org/familyName> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <http://schema.org/Person> ;
+                               rdfs:range xsd:string .
+
+
+###  http://schema.org/givenName
+<http://schema.org/givenName> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/Person> ;
+                              rdfs:range xsd:string .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://schema.org/City>
+                                                     <http://schema.org/Organization>
+                                                   )
+                                     ] ;
+                         rdfs:range xsd:string .
+
+
+###  http://schema.org/streetAddress
+<http://schema.org/streetAddress> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://schema.org/Organization> ;
+                                  rdfs:range xsd:string .
+
+
+###  http://schema.org/url
+<http://schema.org/url> rdf:type owl:DatatypeProperty ;
+                        rdfs:domain <http://schema.org/Organization> ;
+                        rdfs:range xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/City
+<http://schema.org/City> rdf:type owl:Class .
+
+
+###  http://schema.org/Organization
+<http://schema.org/Organization> rdf:type owl:Class .
+
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/AboaMare
+:AboaMare rdf:type owl:NamedIndividual ,
+                   <http://schema.org/Organization> ;
+          <http://schema.org/location> :Turku ;
+          <http://schema.org/name> "Aboa Mare" ;
+          <http://schema.org/streetAddress> "Juhana Herttuan puistokatu 21, 20100 Turku, Finland" ;
+          <http://schema.org/url> <http://www.aboamare.fi> .
+
+
+###  http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/AxelEklund
+:AxelEklund rdf:type owl:NamedIndividual ,
+                     <http://schema.org/Person> ;
+            <http://schema.org/homeLocation> :Turku ;
+            <http://schema.org/worksFor> :AboaMare ;
+            <http://schema.org/email> "axel.eklund@example.com" ;
+            <http://schema.org/familyName> "Eklund" ;
+            <http://schema.org/givenName> "Axel" .
+
+
+###  http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/StinaEklund
+:StinaEklund rdf:type owl:NamedIndividual ,
+                      <http://schema.org/Person> ;
+             <http://schema.org/homeLocation> :Turku ;
+             <http://schema.org/worksFor> :AboaMare ;
+             <http://schema.org/email> "stina.eklund@example.com" ;
+             <http://schema.org/familyName> "Eklund" ;
+             <http://schema.org/givenName> "Stina" .
+
+
+###  http://www.semanticweb.org/mikael/ontologies/2025/3/simple-ontology/Turku
+:Turku rdf:type owl:NamedIndividual ,
+                <http://schema.org/City> ;
+       <http://schema.org/name> "Turku" .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
