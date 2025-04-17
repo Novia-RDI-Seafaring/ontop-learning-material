@@ -1,0 +1,11 @@
+person_id,given_name,family_name,home_city,email,company_id
+1,Aino,Korhonen,Turku,aino.korhonen@axample.fi,4
+2,Mikko,Virtanen,Vaasa,virtanen.mikko@example.fi,2
+3,Sari,Makinen,Turku,sari.makinen@example.fi,1
+4,Teemu,Hämäläinen,Pietarsaari,thamalainen@example.fi,3
+5,Laura,Heikkinen,Pietarsaari,lheikkinen@example.fi,2
+6,Jukka,Koskinen,Pietarsaari,jukka2000@example.fi,2
+7,Noora,Järvinen,Turku,noora123@example.fi,4
+8,Ville,Lehtonen,Pietarsaari,ville.lehtonen@example.fi,3
+9,Emilia,Saarinen,Vaasa,emilia.saarinen@example.fi,3
+10,Antti,Salmi,Pietarsaari,antti.salmi@example.fi,4
